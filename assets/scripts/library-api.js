@@ -1,13 +1,22 @@
 'use strict';
 
-const getBooks = function () {
-  // don't forget the return!!
+const app = require('./app');
+
+const index = function () {
   return $.ajax({
-    url: 'http://localhost:3000/books',
+    url: app.host + '/books',
+    method: 'GET',
+  });
+};
+
+const show = function (id) {
+  return $.ajax({
+    url: app.host + '/books/' + id,
     method: 'GET',
   });
 };
 
 module.exports = {
-  getBooks,
+  index,
+  show,
 };

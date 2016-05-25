@@ -10,10 +10,20 @@ const ui = require('./ui');
 // button is clicked
 const onGetBooks = function (event) {
   event.preventDefault();
-  libraryApi.getBooks().done(ui.onSuccess);
+  let bookId = $('#book-id').val();
+
+  if (bookId.length === 0) {
+    libraryApi.index()
+      .done(ui.onSuccess)
+      .fail(ui.onError);
+  } else {
+    libraryApi.show(bookId)
+      .done(ui.onSuccess)
+      .fail(ui.onError);
+  }
 };
 
 // On document ready
 $(() => {
-  $('#get-books').on('click', onGetBooks);
+  $('#book-request').on('submit', onGetBooks);
 });

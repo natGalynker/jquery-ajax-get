@@ -6,9 +6,18 @@
 // for our application, we'd probably call it "displayBooks"
 // or something similar.
 const onSuccess = function (data) {
-  console.table(data.books);
+  if (data.book) {
+    console.log(data.book);
+  } else {
+    console.table(data.books);
+  }
+};
+
+const onError = function (response) {
+  console.error(response);
 };
 
 module.exports = {
   onSuccess,
+  onError,
 };

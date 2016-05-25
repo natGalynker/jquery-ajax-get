@@ -17,11 +17,16 @@
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
       est laborum.</p>
 
-      <form action="#">
-        <!-- use a good naming convention for your id's, or use a different
-        selector -->
-        <input type="submit" id="get-books" value="GET /books">
-        <!-- be careful! you can't have more than one "submit" button -->
+      <h2>Instructions</h2>
+
+      <p>
+        Provide an ID below to search for a book by ID. If no ID is provided,
+        all books will be returned.
+      </p>
+
+      <form action="#" id="book-request">
+        <input type="text" name="book[id]" id="book-id">
+        <input type="submit">
       </form>
     </body>
 </html>
